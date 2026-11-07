@@ -117,17 +117,6 @@ Relay does not claim to issue a refund. It creates a high-priority handoff, give
 
 All names, orders, tracking links, and email addresses are fictional.
 
-## Useful commands
-
-```bash
-npm run dev        # local development
-npm run seed       # regenerate KB embeddings
-npm run reset      # restore baseline dashboard data
-npm run lint       # ESLint
-npm run typecheck  # TypeScript
-npm run build      # production build
-```
-
 ## Deliberate limitations
 
 This demo has no authentication, real commerce integration, external database, vector database, ticket assignment, or admin editing. Local JSON writes are suitable for a single-user local recording, not concurrent requests or serverless deployment. A production version would use authenticated customer sessions, durable transactional storage, an external helpdesk/commerce API, observability, and retrieval evaluation.

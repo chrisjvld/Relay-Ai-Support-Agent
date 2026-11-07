@@ -1,0 +1,208 @@
+[
+  {
+    "id": "conv-74974084-ae3f-40f9-94c5-a60c42c17591",
+    "createdAt": "2026-11-07T13:18:31.339Z",
+    "updatedAt": "2026-11-07T13:18:31.339Z",
+    "status": "resolved_by_ai",
+    "subject": "Hey whats this company about?",
+    "messages": [
+      {
+        "id": "NEFKmBXpFiebKWMM",
+        "role": "user",
+        "content": "Hey whats this company about?",
+        "createdAt": "2026-11-07T13:18:31.343Z"
+      },
+      {
+        "id": "88a8ffad-09da-475c-a749-21a37eb2075d",
+        "role": "assistant",
+        "content": "Fjellvik Gear is an outdoor equipment company that offers products with a focus on quality and durability. Their gear comes with a five-year limited warranty covering manufacturing defects. They emphasize practical use and care for their products, ensuring they meet the needs of outdoor enthusiasts. If you want to know more about their specific products or policies, I can help with that too.",
+        "createdAt": "2026-11-07T13:18:31.343Z"
+      }
+    ],
+    "sources": [
+      {
+        "articleId": "warranty",
+        "slug": "warranty-and-repairs",
+        "title": "Warranty and repairs",
+        "category": "Warranty"
+      },
+      {
+        "articleId": "returns",
+        "slug": "returns-and-exchanges",
+        "title": "Returns and exchanges",
+        "category": "Returns"
+      },
+      {
+        "articleId": "sizing",
+        "slug": "sizing-and-fit",
+        "title": "Sizing and fit",
+        "category": "Products"
+      }
+    ],
+    "toolsUsed": [
+      "searchKnowledgeBase"
+    ]
+  },
+  {
+    "id": "conv-demo-005",
+    "createdAt": "2026-11-07T08:42:00.000Z",
+    "updatedAt": "2026-11-07T08:44:00.000Z",
+    "status": "resolved_by_ai",
+    "subject": "Caring for a shell jacket",
+    "customerName": "Aksel",
+    "messages": [
+      {
+        "id": "m-501",
+        "role": "user",
+        "content": "How should I wash my shell jacket?",
+        "createdAt": "2026-11-07T08:42:00.000Z"
+      },
+      {
+        "id": "m-502",
+        "role": "assistant",
+        "content": "Wash it at 30°C with technical cleaner, close the zips, and avoid fabric softener.",
+        "createdAt": "2026-11-07T08:44:00.000Z"
+      }
+    ],
+    "sources": [
+      {
+        "articleId": "product-care",
+        "slug": "product-care",
+        "title": "Product care guide",
+        "category": "Product care"
+      }
+    ],
+    "toolsUsed": [
+      "searchKnowledgeBase"
+    ]
+  },
+  {
+    "id": "conv-demo-004",
+    "createdAt": "2026-11-06T16:10:00.000Z",
+    "updatedAt": "2026-11-06T16:12:00.000Z",
+    "status": "resolved_by_ai",
+    "subject": "Order delivery status",
+    "customerName": "Emilie",
+    "customerEmail": "emilie@example.com",
+    "orderNumber": "FG-10398",
+    "messages": [
+      {
+        "id": "m-401",
+        "role": "user",
+        "content": "Where is my order FG-10398?",
+        "createdAt": "2026-11-06T16:10:00.000Z"
+      },
+      {
+        "id": "m-402",
+        "role": "assistant",
+        "content": "Your order is in transit and on schedule for 8 November.",
+        "createdAt": "2026-11-06T16:12:00.000Z"
+      }
+    ],
+    "sources": [],
+    "toolsUsed": [
+      "lookupOrder"
+    ]
+  },
+  {
+    "id": "conv-demo-003",
+    "createdAt": "2026-11-06T12:20:00.000Z",
+    "updatedAt": "2026-11-06T12:24:00.000Z",
+    "status": "escalated",
+    "subject": "Warranty claim for backpack buckle",
+    "customerName": "Sander",
+    "customerEmail": "sander@example.com",
+    "orderNumber": "FG-10377",
+    "messages": [
+      {
+        "id": "m-301",
+        "role": "user",
+        "content": "The buckle broke on my new pack. Can someone help?",
+        "createdAt": "2026-11-06T12:20:00.000Z"
+      },
+      {
+        "id": "m-302",
+        "role": "assistant",
+        "content": "I’ve passed this to our gear team with the details so they can review the warranty claim.",
+        "createdAt": "2026-11-06T12:24:00.000Z"
+      }
+    ],
+    "sources": [
+      {
+        "articleId": "warranty",
+        "slug": "warranty",
+        "title": "Warranty and repairs",
+        "category": "Warranty"
+      }
+    ],
+    "toolsUsed": [
+      "searchKnowledgeBase",
+      "createSupportTicket"
+    ],
+    "ticketId": "TKT-2406"
+  },
+  {
+    "id": "conv-demo-002",
+    "createdAt": "2026-11-05T14:05:00.000Z",
+    "updatedAt": "2026-11-05T14:07:00.000Z",
+    "status": "resolved_by_ai",
+    "subject": "Trouser sizing",
+    "messages": [
+      {
+        "id": "m-201",
+        "role": "user",
+        "content": "Do the Lofoten trousers run true to size?",
+        "createdAt": "2026-11-05T14:05:00.000Z"
+      },
+      {
+        "id": "m-202",
+        "role": "assistant",
+        "content": "They have a regular fit with room for a base layer; use your usual size.",
+        "createdAt": "2026-11-05T14:07:00.000Z"
+      }
+    ],
+    "sources": [
+      {
+        "articleId": "sizing",
+        "slug": "sizing-and-fit",
+        "title": "Sizing and fit",
+        "category": "Products"
+      }
+    ],
+    "toolsUsed": [
+      "searchKnowledgeBase"
+    ]
+  },
+  {
+    "id": "conv-demo-001",
+    "createdAt": "2026-11-05T09:15:00.000Z",
+    "updatedAt": "2026-11-05T09:18:00.000Z",
+    "status": "resolved_by_ai",
+    "subject": "Shipping to Sweden",
+    "messages": [
+      {
+        "id": "m-101",
+        "role": "user",
+        "content": "Do you ship to Sweden?",
+        "createdAt": "2026-11-05T09:15:00.000Z"
+      },
+      {
+        "id": "m-102",
+        "role": "assistant",
+        "content": "Yes. Nordic delivery normally takes 3–6 business days.",
+        "createdAt": "2026-11-05T09:18:00.000Z"
+      }
+    ],
+    "sources": [
+      {
+        "articleId": "shipping",
+        "slug": "shipping-and-delivery",
+        "title": "Shipping and delivery",
+        "category": "Shipping"
+      }
+    ],
+    "toolsUsed": [
+      "searchKnowledgeBase"
+    ]
+  }
+]

@@ -1,0 +1,145 @@
+[
+  {
+    "orderNumber": "FG-10423",
+    "email": "ida@example.com",
+    "customerName": "Ida Berg",
+    "status": "delayed",
+    "items": [
+      { "name": "Nordmarka Shell Jacket", "variant": "Moss / M", "quantity": 1 },
+      { "name": "Merino Trail Socks", "variant": "Charcoal / 39–42", "quantity": 2 }
+    ],
+    "orderedAt": "2026-11-01T09:14:00.000Z",
+    "trackingNumber": "NO948215730",
+    "trackingUrl": "https://www.posten.no/en/tracking?query=NO948215730",
+    "estimatedDelivery": "2026-11-10",
+    "statusNote": "Delayed at the Oslo terminal due to severe weather. The carrier now expects delivery on 10 November.",
+    "statusHistory": [
+      { "label": "Order confirmed", "timestamp": "2026-11-01T09:14:00.000Z" },
+      { "label": "Shipped from Bergen", "timestamp": "2026-11-02T15:40:00.000Z", "location": "Bergen" },
+      { "label": "Weather delay", "timestamp": "2026-11-06T06:20:00.000Z", "location": "Oslo terminal" }
+    ]
+  },
+  {
+    "orderNumber": "FG-10431",
+    "email": "magnus@example.com",
+    "customerName": "Magnus Lie",
+    "status": "processing",
+    "items": [
+      { "name": "Rondane Down Vest", "variant": "Midnight / L", "quantity": 1 }
+    ],
+    "orderedAt": "2026-11-06T18:22:00.000Z",
+    "estimatedDelivery": "2026-11-12",
+    "statusNote": "Being prepared at our Bergen warehouse.",
+    "statusHistory": [
+      { "label": "Order confirmed", "timestamp": "2026-11-06T18:22:00.000Z" },
+      { "label": "Preparing order", "timestamp": "2026-11-07T07:15:00.000Z", "location": "Bergen" }
+    ]
+  },
+  {
+    "orderNumber": "FG-10398",
+    "email": "emilie@example.com",
+    "customerName": "Emilie Strand",
+    "status": "shipped",
+    "items": [
+      { "name": "Lofoten Hiking Trousers", "variant": "Slate / S", "quantity": 1 }
+    ],
+    "orderedAt": "2026-10-30T11:03:00.000Z",
+    "trackingNumber": "NO332108441",
+    "trackingUrl": "https://www.posten.no/en/tracking?query=NO332108441",
+    "estimatedDelivery": "2026-11-08",
+    "statusNote": "In transit and on schedule for delivery.",
+    "statusHistory": [
+      { "label": "Order confirmed", "timestamp": "2026-10-30T11:03:00.000Z" },
+      { "label": "Shipped", "timestamp": "2026-11-02T10:25:00.000Z", "location": "Bergen" },
+      { "label": "In transit", "timestamp": "2026-11-06T21:10:00.000Z", "location": "Trondheim" }
+    ]
+  },
+  {
+    "orderNumber": "FG-10377",
+    "email": "sander@example.com",
+    "customerName": "Sander Vik",
+    "status": "delivered",
+    "items": [
+      { "name": "Jotun 38L Backpack", "variant": "Pine", "quantity": 1 }
+    ],
+    "orderedAt": "2026-10-24T08:45:00.000Z",
+    "trackingNumber": "NO184562209",
+    "trackingUrl": "https://www.posten.no/en/tracking?query=NO184562209",
+    "estimatedDelivery": "2026-10-29",
+    "statusNote": "Delivered to the selected pickup point on 29 October.",
+    "statusHistory": [
+      { "label": "Order confirmed", "timestamp": "2026-10-24T08:45:00.000Z" },
+      { "label": "Shipped", "timestamp": "2026-10-25T12:10:00.000Z", "location": "Bergen" },
+      { "label": "Delivered", "timestamp": "2026-10-29T13:55:00.000Z", "location": "Majorstuen pickup point" }
+    ]
+  },
+  {
+    "orderNumber": "FG-10291",
+    "email": "nora@example.com",
+    "customerName": "Nora Solheim",
+    "status": "returned",
+    "items": [
+      { "name": "Hardangervidda Fleece", "variant": "Oat / M", "quantity": 1 }
+    ],
+    "orderedAt": "2026-09-22T16:04:00.000Z",
+    "statusNote": "Return received and refunded to the original payment method.",
+    "statusHistory": [
+      { "label": "Delivered", "timestamp": "2026-09-27T14:20:00.000Z" },
+      { "label": "Return received", "timestamp": "2026-10-08T09:30:00.000Z", "location": "Bergen" },
+      { "label": "Refund completed", "timestamp": "2026-10-10T12:15:00.000Z" }
+    ]
+  },
+  {
+    "orderNumber": "FG-10405",
+    "email": "thea@example.com",
+    "customerName": "Thea Holm",
+    "status": "shipped",
+    "items": [
+      { "name": "Sognefjord Rain Cape", "variant": "Clay / One size", "quantity": 1 }
+    ],
+    "orderedAt": "2026-11-02T13:38:00.000Z",
+    "trackingNumber": "NO512763920",
+    "trackingUrl": "https://www.posten.no/en/tracking?query=NO512763920",
+    "estimatedDelivery": "2026-11-09",
+    "statusNote": "Departed the regional sorting facility.",
+    "statusHistory": [
+      { "label": "Order confirmed", "timestamp": "2026-11-02T13:38:00.000Z" },
+      { "label": "Shipped", "timestamp": "2026-11-04T08:12:00.000Z", "location": "Bergen" }
+    ]
+  },
+  {
+    "orderNumber": "FG-10342",
+    "email": "olav@example.com",
+    "customerName": "Olav Nilsen",
+    "status": "delivered",
+    "items": [
+      { "name": "Gausta Base Layer", "variant": "Ink / XL", "quantity": 1 },
+      { "name": "Merino Trail Socks", "variant": "Moss / 43–46", "quantity": 1 }
+    ],
+    "orderedAt": "2026-10-12T07:52:00.000Z",
+    "trackingNumber": "NO732205188",
+    "trackingUrl": "https://www.posten.no/en/tracking?query=NO732205188",
+    "estimatedDelivery": "2026-10-18",
+    "statusNote": "Delivered to the customer on 17 October.",
+    "statusHistory": [
+      { "label": "Order confirmed", "timestamp": "2026-10-12T07:52:00.000Z" },
+      { "label": "Delivered", "timestamp": "2026-10-17T15:42:00.000Z", "location": "Tromsø" }
+    ]
+  },
+  {
+    "orderNumber": "FG-10416",
+    "email": "henrik@example.com",
+    "customerName": "Henrik Aas",
+    "status": "processing",
+    "items": [
+      { "name": "Senja Trekking Poles", "variant": "Graphite", "quantity": 1 }
+    ],
+    "orderedAt": "2026-11-04T20:11:00.000Z",
+    "estimatedDelivery": "2026-11-11",
+    "statusNote": "Payment confirmed; awaiting warehouse dispatch.",
+    "statusHistory": [
+      { "label": "Order confirmed", "timestamp": "2026-11-04T20:11:00.000Z" },
+      { "label": "Payment confirmed", "timestamp": "2026-11-04T20:12:00.000Z" }
+    ]
+  }
+]

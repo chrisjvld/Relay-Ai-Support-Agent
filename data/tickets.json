@@ -1,0 +1,15 @@
+[
+  {
+    "id": "TKT-2406",
+    "conversationId": "conv-demo-003",
+    "createdAt": "2026-11-06T12:24:00.000Z",
+    "status": "open",
+    "category": "warranty",
+    "priority": "normal",
+    "sentiment": "neutral",
+    "summary": "Customer reports a broken buckle on a recently delivered Jotun 38L Backpack and is asking for warranty help. Order FG-10377 is verified.",
+    "latestMessage": "The buckle broke on my new pack. Can someone help?",
+    "customerEmail": "sander@example.com",
+    "orderNumber": "FG-10377"
+  }
+]

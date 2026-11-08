@@ -8,51 +8,19 @@ import {
 import { buildSystemPrompt } from "@/lib/agent/system-prompt";
 import { createAgentTools } from "@/lib/agent/tools";
 import { detectEscalationSignal } from "@/lib/demo/escalation-signals";
+import { isDemoMode } from "@/lib/demo/demo-mode";
+import { createDemoResponse } from "@/lib/demo/demo-playback";
 import {
-  listConversations,
-  upsertConversation,
-} from "@/lib/repositories/conversations";
-import type { Conversation, SupportMessage } from "@/lib/types";
+  messageText,
+  persistConversation,
+} from "@/lib/agent/persist-conversation";
 
 export const maxDuration = 30;
 
-function messageText(message: UIMessage) {
-  return message.parts
-    .filter(
-      (part): part is Extract<(typeof message.parts)[number], { type: "text" }> =>
-        part.type === "text",
-    )
-    .map((part) => part.text)
-    .join("\n")
-    .trim();
-}
-
-function toStoredMessages(messages: UIMessage[], assistantText: string) {
-  const now = new Date().toISOString();
-  const stored: SupportMessage[] = messages
-    .filter((message) => message.role === "user" || message.role === "assistant")
-    .map((message) => ({
-      id: message.id,
-      role: message.role as "user" | "assistant",
-      content: messageText(message),
-      createdAt: now,
-    }))
-    .filter((message) => message.content);
-
-  if (assistantText.trim()) {
-    stored.push({
-      id: crypto.randomUUID(),
-      role: "assistant",
-      content: assistantText.trim(),
-      createdAt: now,
-    });
-  }
-
-  return stored;
-}
-
 export async function POST(request: Request) {
-  if (!process.env.OPENAI_API_KEY) {
+  const demo = isDemoMode();
+
+  if (!demo && !process.env.OPENAI_API_KEY) {
     return Response.json(
       {
         error:
@@ -72,6 +40,10 @@ export async function POST(request: Request) {
   }
 
   const messages = body.messages;
+
+  // Scripted playback for recordings and keyless local runs. See lib/demo.
+  if (demo) return createDemoResponse(body.id, messages);
+
   const latestUserMessage = [...messages]
     .reverse()
     .find((message) => message.role === "user");
@@ -90,50 +62,12 @@ export async function POST(request: Request) {
     stopWhen: stepCountIs(5),
     temperature: 0.2,
     onFinish: async ({ text }) => {
-      const now = new Date().toISOString();
-      const existing = (await listConversations()).find(
-        (conversation) => conversation.id === body.id,
-      );
-      const allText = messages.map(messageText).join(" ");
-      const orderNumber =
-        state.verifiedOrder?.orderNumber ??
-        allText.match(/\bFG-\d{5}\b/i)?.[0]?.toUpperCase();
-      const customerEmail =
-        state.verifiedOrder?.email ??
-        allText.match(/\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b/i)?.[0];
-      const firstUserText =
-        messages.find((message) => message.role === "user")?.parts
-          .filter((part) => part.type === "text")
-          .map((part) => part.text)
-          .join(" ") ?? "New support conversation";
-
-      const conversation: Conversation = {
+      await persistConversation({
         id: body.id!,
-        createdAt: existing?.createdAt ?? now,
-        updatedAt: now,
-        status: state.ticket ? "escalated" : "resolved_by_ai",
-        subject:
-          firstUserText.length > 58
-            ? `${firstUserText.slice(0, 58)}…`
-            : firstUserText,
-        customerName:
-          state.verifiedOrder?.customerName ?? existing?.customerName,
-        customerEmail: customerEmail ?? existing?.customerEmail,
-        orderNumber: orderNumber ?? existing?.orderNumber,
-        messages: toStoredMessages(messages, text),
-        sources: state.sources.map(
-          ({ articleId, slug, title, category }) => ({
-            articleId,
-            slug,
-            title,
-            category,
-          }),
-        ),
-        toolsUsed: [...state.toolsUsed],
-        ticketId: state.ticket?.id,
-      };
-
-      await upsertConversation(conversation);
+        messages,
+        assistantText: text,
+        state,
+      });
     },
   });
 

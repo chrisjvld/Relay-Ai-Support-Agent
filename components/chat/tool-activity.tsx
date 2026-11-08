@@ -331,11 +331,13 @@ export function ToolResult({ part }: { part: AnyToolPart }) {
           </div>
           <div>
             <dt>Priority</dt>
-            <dd>{result.priority}</dd>
+            <dd>
+              {result.priority.charAt(0).toUpperCase() + result.priority.slice(1)}
+            </dd>
           </div>
           <div>
             <dt>Reply target</dt>
-            <dd>1 business day</dd>
+            <dd>1 work day</dd>
           </div>
         </dl>
       </motion.div>

@@ -1217,7 +1217,6 @@ a {
   font-size: 0.8125rem;
   font-weight: 500;
   font-variant-numeric: tabular-nums;
-  text-transform: capitalize;
 }
 
 .handoff-banner {
@@ -1824,9 +1823,15 @@ a {
     border-radius: var(--radius-card);
   }
 
+  .hero-banner circle {
+    display: none;
+  }
+
+  /* Keep the chip clear of the floating chat launcher */
   .banner-chip {
+    top: 0.75rem;
     right: 0.75rem;
-    bottom: 0.75rem;
+    bottom: auto;
     left: 0.75rem;
   }
 

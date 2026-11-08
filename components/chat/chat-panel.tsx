@@ -113,6 +113,7 @@ export function ChatPanel({ demo = false }: { demo?: boolean }) {
   const scrollRef = useRef<HTMLDivElement>(null);
   const threadRef = useRef<HTMLDivElement>(null);
   const pinnedToBottom = useRef(true);
+  const openRef = useRef(open);
 
   const transport = useMemo(
     () => new DefaultChatTransport({ api: "/api/chat" }),
@@ -133,7 +134,14 @@ export function ChatPanel({ demo = false }: { demo?: boolean }) {
     const thread = threadRef.current;
     if (!scroller || !thread) return;
 
+    // Only a scroll the reader started can unpin; layout shifts (chips
+    // appearing, the composer growing) also fire scroll events.
+    let lastUserInput = 0;
+    const markUser = () => {
+      lastUserInput = performance.now();
+    };
     const onScroll = () => {
+      if (performance.now() - lastUserInput > 300) return;
       const distance =
         scroller.scrollHeight - scroller.scrollTop - scroller.clientHeight;
       pinnedToBottom.current = distance < 48;
@@ -144,10 +152,18 @@ export function ChatPanel({ demo = false }: { demo?: boolean }) {
       }
     });
     scroller.addEventListener("scroll", onScroll, { passive: true });
+    scroller.addEventListener("wheel", markUser, { passive: true });
+    scroller.addEventListener("touchmove", markUser, { passive: true });
+    scroller.addEventListener("pointerdown", markUser, { passive: true });
+    scroller.addEventListener("keydown", markUser);
     observer.observe(thread);
     observer.observe(scroller);
     return () => {
       scroller.removeEventListener("scroll", onScroll);
+      scroller.removeEventListener("wheel", markUser);
+      scroller.removeEventListener("touchmove", markUser);
+      scroller.removeEventListener("pointerdown", markUser);
+      scroller.removeEventListener("keydown", markUser);
       observer.disconnect();
     };
   }, [open]);
@@ -167,6 +183,10 @@ export function ChatPanel({ demo = false }: { demo?: boolean }) {
     textarea.style.height = "auto";
     textarea.style.height = `${Math.min(textarea.scrollHeight, 120)}px`;
   }, [input]);
+
+  useEffect(() => {
+    openRef.current = open;
+  }, [open]);
 
   function closePanel() {
     setOpen(false);
@@ -204,7 +224,10 @@ export function ChatPanel({ demo = false }: { demo?: boolean }) {
             initial={{ opacity: 0, scale: 0.4, y: 16 }}
             key="panel"
             onAnimationComplete={() => {
-              if (open) textareaRef.current?.focus({ preventScroll: true });
+              // The exiting panel keeps a stale `open`, so read the live value.
+              if (openRef.current) {
+                textareaRef.current?.focus({ preventScroll: true });
+              }
             }}
             role="dialog"
             transition={sheetSpring}

@@ -1,34 +1,39 @@
 import Link from "next/link";
-import { MountainSnow } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
+import { RelayMark } from "@/components/brand/relay-mark";
+import { ScrollHeader } from "@/components/chrome/scroll-header";
 import { DashboardClient } from "@/components/dashboard/dashboard-client";
 
 export default function DashboardPage() {
   return (
-    <div className="dashboard-shell">
-      <nav className="dashboard-nav">
-        <Link className="wordmark" href="/">
-          <span className="brand-mark">
-            <MountainSnow size={19} strokeWidth={1.8} />
-          </span>
-          Relay
-        </Link>
-        <Link href="/">Open customer chat →</Link>
-      </nav>
-
-      <main className="dashboard-main">
-        <div className="dashboard-titlebar">
-          <div>
-            <span className="eyebrow">Fjellvik support operations</span>
-            <h1>Good morning, Ingrid.</h1>
+    <>
+      <ScrollHeader className="dash-nav">
+        <nav aria-label="Dashboard" className="nav-inner">
+          <Link className="dash-brand" href="/dashboard">
+            <RelayMark size={28} />
+            <span>Relay</span>
+            <span>Fjellvik Support</span>
+          </Link>
+          <div className="dash-nav-actions">
+            <span className="live-indicator">
+              <span className="dot" />
+              <span>Live</span>
+            </span>
+            <Link className="nav-cta pressable" href="/">
+              Customer chat
+              <ArrowUpRight size={14} />
+            </Link>
           </div>
-          <span className="live-pill">
-            <i />
-            Live updates
-          </span>
-        </div>
+        </nav>
+      </ScrollHeader>
 
+      <main className="dash-main">
+        <div className="dash-title">
+          <p>Support overview</p>
+          <h1>Good morning, Ingrid.</h1>
+        </div>
         <DashboardClient />
       </main>
-    </div>
+    </>
   );
 }

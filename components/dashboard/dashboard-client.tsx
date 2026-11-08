@@ -49,9 +49,36 @@ export function DashboardClient() {
 
   if (!loaded) {
     return (
-      <div className="dashboard-loading">
-        <span />
-        Loading support workspace…
+      <div aria-busy="true" aria-label="Loading support workspace">
+        <div className="stats-grid">
+          {[0, 1, 2].map((key) => (
+            <div className="card stat-card" key={key}>
+              <div className="skeleton" style={{ width: "45%", height: 14 }} />
+              <div
+                className="skeleton"
+                style={{ width: "30%", height: 36, marginTop: 14 }}
+              />
+              <div
+                className="skeleton"
+                style={{ width: "70%", height: 12, marginTop: 12 }}
+              />
+            </div>
+          ))}
+        </div>
+        <div className="dash-grid">
+          {[0, 1].map((key) => (
+            <div className="card" key={key} style={{ padding: 22 }}>
+              <div className="skeleton" style={{ width: "40%", height: 16 }} />
+              {[0, 1, 2, 3].map((row) => (
+                <div
+                  className="skeleton"
+                  key={row}
+                  style={{ height: 44, marginTop: 14 }}
+                />
+              ))}
+            </div>
+          ))}
+        </div>
       </div>
     );
   }
@@ -59,7 +86,7 @@ export function DashboardClient() {
   return (
     <>
       <DashboardStats stats={data.stats} />
-      <section className="dashboard-grid">
+      <section className="dash-grid">
         <ConversationList conversations={data.conversations} />
         <TicketList tickets={data.tickets} />
       </section>

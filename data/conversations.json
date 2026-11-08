@@ -1,49 +1,5 @@
 [
   {
-    "id": "conv-74974084-ae3f-40f9-94c5-a60c42c17591",
-    "createdAt": "2026-11-07T13:18:31.339Z",
-    "updatedAt": "2026-11-07T13:18:31.339Z",
-    "status": "resolved_by_ai",
-    "subject": "Hey whats this company about?",
-    "messages": [
-      {
-        "id": "NEFKmBXpFiebKWMM",
-        "role": "user",
-        "content": "Hey whats this company about?",
-        "createdAt": "2026-11-07T13:18:31.343Z"
-      },
-      {
-        "id": "88a8ffad-09da-475c-a749-21a37eb2075d",
-        "role": "assistant",
-        "content": "Fjellvik Gear is an outdoor equipment company that offers products with a focus on quality and durability. Their gear comes with a five-year limited warranty covering manufacturing defects. They emphasize practical use and care for their products, ensuring they meet the needs of outdoor enthusiasts. If you want to know more about their specific products or policies, I can help with that too.",
-        "createdAt": "2026-11-07T13:18:31.343Z"
-      }
-    ],
-    "sources": [
-      {
-        "articleId": "warranty",
-        "slug": "warranty-and-repairs",
-        "title": "Warranty and repairs",
-        "category": "Warranty"
-      },
-      {
-        "articleId": "returns",
-        "slug": "returns-and-exchanges",
-        "title": "Returns and exchanges",
-        "category": "Returns"
-      },
-      {
-        "articleId": "sizing",
-        "slug": "sizing-and-fit",
-        "title": "Sizing and fit",
-        "category": "Products"
-      }
-    ],
-    "toolsUsed": [
-      "searchKnowledgeBase"
-    ]
-  },
-  {
     "id": "conv-demo-005",
     "createdAt": "2026-11-07T08:42:00.000Z",
     "updatedAt": "2026-11-07T08:44:00.000Z",

@@ -4,6 +4,20 @@ Relay is a portfolio demo of a custom-coded AI customer support workflow for **F
 
 The project is intentionally focused on one polished support journey rather than production-scale infrastructure.
 
+![Relay chat verifying an order and handing off to a person](docs/screenshot.png)
+
+## Design
+
+The interface follows a calm, Apple-inspired design system shared across my portfolio projects:
+
+- **Chat as a sheet that grows from its launcher.** It opens and closes along the same path, using critically damped springs (`motion`), with press feedback on pointer-down.
+- **Tool calls shown as live status rows.** Knowledge search, order verification and ticket creation each show a spinner that turns into a check, a short detail line and the elapsed time. Order and handoff results follow as cards.
+- **Escalation is clearly visible.** Once a ticket exists, the chat header, a handoff card and a banner all show that a person has taken over.
+- **Dashboard:** a translucent sticky header, stats with tabular numbers, status pills, staggered list entry, skeleton loading and simple empty states.
+- **Light and dark mode** from shared design tokens. It works at 390px wide and respects reduced motion, reduced transparency and increased contrast.
+
+More screenshots (light, dark, desktop, mobile) are in [`docs/screens`](docs/screens).
+
 ## What it demonstrates
 
 - Streamed customer chat using the Vercel AI SDK and OpenAI
@@ -39,12 +53,13 @@ Important implementation points:
 - [`lib/agent/system-prompt.ts`](lib/agent/system-prompt.ts) keeps Relay's tone, grounding, privacy, and escalation rules easy to review.
 - [`lib/agent/tools.ts`](lib/agent/tools.ts) defines the three server-side tools.
 - [`scripts/seed-knowledge.ts`](scripts/seed-knowledge.ts) chunks the markdown articles and creates OpenAI embeddings once.
+- [`components/chat/tool-activity.tsx`](components/chat/tool-activity.tsx) renders the live tool status rows and result cards.
 - [`lib/rag/retrieve.ts`](lib/rag/retrieve.ts) embeds each query and ranks local chunks using cosine similarity.
 - `data/*.json` is used deliberately for a repeatable local demo. It is not a production persistence strategy.
 
 ## Setup
 
-Requirements: Node.js 20+ and an OpenAI API key.
+Requirements: Node.js 20+ and an OpenAI API key (optional, see demo mode below).
 
 ```bash
 npm install
@@ -58,6 +73,10 @@ OPENAI_API_KEY=sk-...
 OPENAI_CHAT_MODEL=gpt-4.1-mini
 OPENAI_EMBEDDING_MODEL=text-embedding-3-small
 ```
+
+### Demo mode (no API key)
+
+Without `OPENAI_API_KEY`, or with `DEMO_MODE=1`, Relay plays back scripted replies instead of calling OpenAI. The replies use the same stream format and the real order lookup and ticket tools, so the full demo script below works and tickets show up on the dashboard. A small "Demo mode" label appears under the composer. Set `DEMO_MODE=0` to turn the fallback off. Code: [`lib/demo/demo-playback.ts`](lib/demo/demo-playback.ts).
 
 Create the knowledge index, then start the app:
 

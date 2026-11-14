@@ -1,8 +1,19 @@
 # Relay — AI Support Agent
 
+**A custom-coded AI support agent: grounded answers with sources, verified order lookup and human handoff.**
+
+[![CI](https://github.com/chrisjvld/Support-Agent/actions/workflows/ci.yml/badge.svg)](https://github.com/chrisjvld/Support-Agent/actions/workflows/ci.yml)
+![Next.js 16](https://img.shields.io/badge/Next.js-16-000?logo=nextdotjs)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-3178c6?logo=typescript&logoColor=white)
+![Vercel AI SDK](https://img.shields.io/badge/Vercel%20AI%20SDK-6-000?logo=vercel)
+![OpenAI](https://img.shields.io/badge/OpenAI-RAG%20%2B%20tools-412991?logo=openai&logoColor=white)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
 Relay is a portfolio demo of a custom-coded AI customer support workflow for **Fjellvik Gear**, a fictional Norwegian outdoor retailer. It answers from an approved knowledge base, securely checks mock orders, and hands difficult cases to a human with a structured summary.
 
 The project is intentionally focused on one polished support journey rather than production-scale infrastructure.
+
+Part of a set with [Scout](https://github.com/chrisjvld/Lead-Agent) (AI lead research) and [Ledger](https://github.com/chrisjvld/Invoice-Agent) (AI invoice processing).
 
 ![Relay chat verifying an order and handing off to a person](docs/screenshot.png)
 
@@ -139,3 +150,7 @@ All names, orders, tracking links, and email addresses are fictional.
 ## Deliberate limitations
 
 This demo has no authentication, real commerce integration, external database, vector database, ticket assignment, or admin editing. Local JSON writes are suitable for a single-user local recording, not concurrent requests or serverless deployment. A production version would use authenticated customer sessions, durable transactional storage, an external helpdesk/commerce API, observability, and retrieval evaluation.
+
+---
+
+Built by **Christoffer Jamvold-Hughes**, AI automation engineer: custom AI agents and workflow automation in TypeScript and Python. [Hire me on Upwork](https://www.upwork.com/freelancers/~013ab6f9e1da22cde6).
